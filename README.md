@@ -213,6 +213,13 @@ started and puts it back before drawing, so after a load the previous scene's
 BG mode, tilemaps and windows replaced the state's; a scene that sets them only
 once (Bart's Nightmare's title, its doors) stayed garbled until it changed.
 
+This project also saves the CPU's place in each save state
+(`src/game_rtl.c`): the memory alone does not say where the CPU was, and a
+load resumed at the running session's place, so a state loaded during
+another scene (a cutscene, a menu) ran that scene's code over the state's
+memory and went off the rails. A state from an earlier release still loads
+as before.
+
 `snesrecomp-v10-savestates.patch` keeps every save state players already
 have. The framework's current access-exact SPC/DSP timing writes v11 states
 and refused the v10 ones every earlier release wrote. With this patch a v10

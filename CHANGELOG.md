@@ -8,8 +8,10 @@ priority, brightness-rounding, HDMA and mosaic fixes: over the same test run
 2423 of 3000 frames now match snes9x exactly, where 0.1.0 matched 1171. A
 game that reads the controller by hand now gets fresh buttons on every read
 ($4016 strobe), and a save state loaded in another scene is no longer drawn
-with the previous scene's registers. Save states from 0.1.0 keep loading,
-with the music playing on (the old sound state is converted). With
+with the previous scene's registers. Save states now keep the CPU's place,
+so one loaded during a cutscene or the logos no longer runs off the rails.
+Save states from 0.1.0 keep loading, with the music playing on (the old
+sound state is converted). With
 [RecompLauncher](https://recomplauncher.com) the game builds on the
 launcher's setup screen, Play goes straight into the game, Big Picture opens
 full screen, and the renderer and shader are on the game's page. Controllers
